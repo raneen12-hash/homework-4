@@ -4,15 +4,15 @@
 #include "Utilities.h"
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
-    cardmake(eventsStream);
+    eventmake(eventsStream);
     playermake(playersStream);
     this->m_turnIndex = 1;
 }
 
 void MatamStory::playTurn(Player& player) {
-    int cardIndex = (m_turnIndex-1)%(m_cards.size());
-    printTurnDetails(m_turnIndex, player, *(m_cards[cardIndex]));
-    m_cards[cardIndex]->applyCard(player);
+    int EventIndex = (m_turnIndex-1)%(m_events.size());
+    printTurnDetails(m_turnIndex, player, *(m_events[EventIndex]));
+    m_events[EventIndex]->applyEvent(player);
     cout<<endl;
     m_turnIndex++;
 }
@@ -114,7 +114,7 @@ void MatamStory::play() {
 }
 
 
-void Mtmchkin::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k,int& k )
+void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k,int& k )
 {
     if(arr[k]=="Goblin")
     {
@@ -165,7 +165,7 @@ void Mtmchkin::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int& t
     }
 
 }
-void Mtmchkin::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k )
+void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k )
 {
 
     for (int k = 0; k < j; ++k) {
@@ -212,7 +212,7 @@ void Mtmchkin::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp_p
         }
     }
 }
-void Mtmchkin::cardmake(const string& Path)
+void MatamStory::cardmake(const string& Path)
 {
     std::ifstream source(Path);
     if (!source) {
@@ -258,7 +258,7 @@ static bool islegalchars(string& name)
     }
     return true;
 }
-void Mtmchkin::playermake(const string& Path) {
+void MatamStory::playermake(const string& Path) {
     ifstream source2(Path);
     if (!source2) {
         throw InvalidPlayersFile();
@@ -292,115 +292,8 @@ void Mtmchkin::playermake(const string& Path) {
 
 }
 
-Mtmchkin::Mtmchkin(const string& deckPath, const string& playersPath) {
-    cardmake(deckPath);
-    playermake(playersPath);
-    this->m_turnIndex = 1;
-}
 
-void Mtmchkin::playTurn(Player& player) {
-    int cardIndex = (m_turnIndex-1)%(m_cards.size());
-    printTurnDetails(m_turnIndex, player, *(m_cards[cardIndex]));
-    m_cards[cardIndex]->applyCard(player);
-    cout<<endl;
-    m_turnIndex++;
-}
-
-void Mtmchkin::playRound() {
-
-    printRoundStart();
-
-    /*===== TODO: Play a turn for each player =====*/
-    for(auto& player : m_players){
-        if(player->getHealthPoints() > 0){
-            playTurn(*player);
-        }
-    }
-    /*=============================================*/
-
-    printRoundEnd();
-
-    printLeaderBoardMessage();
-
-    /*===== TODO: Print leaderboard entry for each player using "printLeaderBoardEntry" =====*/
-    vector<Player*> temp;
-    for(auto& player : m_players){
-        Player* p=new Player(player->getName(),"Warrior","Responsible");
-        p->addCoins(-p->getCoins()+player->getCoins());
-        while (p->getLevel()!=player->getLevel())
-            p->levelUp();
-        p->buff(-p->getForce()+player->getForce());
-        p->damage(p->getHealthPoints()-player->getHealthPoints());
-        temp.push_back(p);
-    }
-    mtmSort(&temp);
-    for(size_t i = 0; i < m_players.size(); i++){
-        printLeaderBoardEntry(i+1, *(temp[i]));
-    }
-    for(auto& player : temp){
-        delete player;
-    }
-    /*=======================================================================================*/
-
-    printBarrier();
-}
-
-bool Mtmchkin::isGameOver() const {
-    bool knockedOut = true;
-    for(auto& player : m_players){
-        if(player->getLevel() == 10){
-            return true;
-        }
-        if(player->getHealthPoints() != 0){
-            knockedOut = false;
-        }
-    }
-    if(knockedOut){
-        return true;
-    }
-    return false;
-}
-
-void Mtmchkin::play() {
-    printStartMessage();
-    /*===== TODO: Print start message entry for each player using "printStartPlayerEntry" =====*/
-    for(size_t i = 0; i < m_players.size(); i++){
-        printStartPlayerEntry(i+1, *(m_players[i]));
-    }
-    /*=========================================================================================*/
-    printBarrier();
-
-    while (!isGameOver()) {
-        playRound();
-    }
-
-    printGameOver();
-    /*===== TODO: Print either a "winner" message or "no winner" message =====*/
-    for(auto& player : m_players){
-        if(player->getLevel() == 10){
-            vector<Player*> temp;
-            for(auto& player : m_players){
-                Player* p=new Player(player->getName(),"Warrior","Responsible");
-                p->addCoins(-p->getCoins()+player->getCoins());
-                while (p->getLevel()!=player->getLevel())
-                    p->levelUp();
-                p->buff(-p->getForce()+player->getForce());
-                p->damage(p->getHealthPoints()-player->getHealthPoints());
-                temp.push_back(p);
-            }
-            mtmSort(&temp);
-            printWinner(*(temp[0]));
-            for(auto& player : temp){
-                delete player;
-            }
-            return;
-        }
-    }
-    printNoWinners();
-    /*========================================================================*/
-}
-
-void Mtmchkin::mtmSort(vector<Player*>* temp){
+void MatamStory::mtmSort(vector<Player*>* temp){
 
     sort(temp->begin(), temp->end(), [](const Player* p1, const Player* p2) {
         if (p1->getLevel() != p2->getLevel()) {
