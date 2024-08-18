@@ -22,6 +22,6 @@ string RiskTaking :: getType() const {
     return m_type;
 }
 
-Behavior* RiskTaking::clone() const{
+Character* RiskTaking::clone() const{
     return new RiskTaking(*this);
 }

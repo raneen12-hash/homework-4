@@ -24,9 +24,9 @@ private:
     unsigned int m_turnIndex;
     vector<unique_ptr<Player>> m_players;
     vector<unique_ptr<Event>> m_events;
-    Gang* makeGang(string *arr, int begin, int end);
-    void eventmake(const string& Path);
-    void playermake(const string& Path);
+    Pack* makeGang(string *arr, int begin, int end);
+    void eventmake(const std::istream& eventsStream);
+    void playermake(const std::istream& playersStream);
 
     /**
      * Playes a single turn for a player

@@ -111,12 +111,10 @@ void MatamStory::play() {
     printNoWinners();
     /*========================================================================*/
 }
-}
-
 
 void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k,int& k )
 {
-    if(arr[k]=="Goblin")
+    if(arr[k]=="Snail")
     {
         if(size!=0){
             temp_power+=5;
@@ -124,22 +122,22 @@ void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int&
             temp_damage+=10;
             size--;}
         else {
-            m_cards.push_back(std::unique_ptr<Goblin>(new Goblin()));
+            m_events.push_back(std::unique_ptr<Snail>(new Snail()));
         }
     }
     else
-    if(arr[k]=="Dragon")
+    if(arr[k]=="Balrog")
     { if(size!=0) {
-            temp_power += 17;
+            temp_power += 15;
             temp_loot += 100;
             temp_damage += 9001;
             size--;
         }
         else{
-            m_cards.push_back(std::unique_ptr<Dragon>(new Dragon()));
+            m_events.push_back(std::unique_ptr<Balrog>(new Balrog()));
         }
     }
-    else if(arr[k]=="Giant")
+    else if(arr[k]=="Slime")
     { if(size!=0) {
             temp_power += 12;
             temp_loot += 5;
@@ -147,21 +145,21 @@ void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int&
             size--;
         }
         else{
-            m_cards.push_back(std::unique_ptr<Giant>(new Giant()));
+            m_events.push_back(std::unique_ptr<Slime>(new Slime()));
         }
     }
     else if (arr[k] == "SolarEclipse"&& flag!=1) {
-        m_cards.push_back(std::unique_ptr<SolarEclipse>(new SolarEclipse()));
+        m_events.push_back(std::unique_ptr<SolarEclipse>(new SolarEclipse()));
     }
     else if (arr[k] == "PotionsMerchant"&&flag!=1) {
-        m_cards.push_back(std::unique_ptr<PotionsMerchant>(new PotionsMerchant()));
+        m_events.push_back(std::unique_ptr<PotionsMerchant>(new PotionsMerchant()));
     }
 
-    else if(arr[k]=="Gang"&&size!=0){
+    else if(arr[k]=="Pack"&&size!=0){
         k--;
     }
     else{
-        throw InvalidCardsFile();
+        throw InvalidEventFile();
     }
 
 }
@@ -169,18 +167,18 @@ void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp
 {
 
     for (int k = 0; k < j; ++k) {
-        if(arr[k]=="Gang"|| size!=0||flag_k==-1)
+        if(arr[k]=="Pack"|| size!=0||flag_k==-1)
         {
-            if(arr[k]=="Gang"&&k+1==j)
+            if(arr[k]=="Pack"&&k+1==j)
             {
                 flag_k=-1;
                 return;
             }
-            if((flag_k==-1&&std::stoi(arr[0])<2)||(arr[k]=="Gang"&&std::stoi(arr[k+1])<2))
+            if((flag_k==-1&&std::stoi(arr[0])<2)||(arr[k]=="Pack"&&std::stoi(arr[k+1])<2))
             {
-                throw InvalidCardsFile();
+                throw InvalidEventFile();
             }
-            if(size==0&&(arr[k]=="Gang"||flag_k==-1))
+            if(size==0&&(arr[k]=="Pack"||flag_k==-1))
             {   k=flag_k==-1?-1:k;
                 flag_k=1;
                 s=std::stoi(arr[k+1]);
@@ -188,7 +186,7 @@ void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp
                 k+=2;
                 flag=1;
             }
-            else if(arr[k]=="Gang"||flag_k==-1) {
+            else if(arr[k]=="Pack"||flag_k==-1) {
                 if(flag_k==-1)
                 {
                     size += size==0 ? std::stoi(arr[0]) : std::stoi(arr[0])-1;
@@ -204,7 +202,7 @@ void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp
         Aux_lesslines(arr,j,size,flag,s,temp_power,temp_damage,temp_loot,flag_k,k);
 
         if(size==0&&flag){
-            m_cards.push_back(unique_ptr<Gang>(unique_ptr<Gang>(new Gang(temp_power,temp_loot,temp_damage,s))));
+            m_events.push_back(unique_ptr<Pack>(unique_ptr<Pack>(new Pack(temp_power,temp_loot,temp_damage,s))));
             temp_damage=0;
             temp_loot=0;
             temp_power=0;
@@ -212,19 +210,18 @@ void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp
         }
     }
 }
-void MatamStory::cardmake(const string& Path)
+void MatamStory::eventmake(const std::istream& eventsStream)
 {
-    std::ifstream source(Path);
-    if (!source) {
-        throw InvalidCardsFile();
+    if (!eventsStream) {
+        throw InvalidEventFile();
     }
-    std::string cardName,word,c;
+    std::string eventName,word,c;
     int i=0,temp_power=0,temp_loot=0,temp_damage=0,j=0,size=0,flag=0,s,flag_kk=1;
 
-    while(getline(source,cardName)){
+    while(getline(eventsStream,eventName)){
 
         i=0,j=0;
-        istringstream iss(cardName);
+        istringstream iss(eventName);
         while (iss >> word) {
             i++;
         }
@@ -243,12 +240,12 @@ void MatamStory::cardmake(const string& Path)
         catch (...)
         {
             delete[] arr;
-            throw InvalidCardsFile();
+            throw InvalidEventFile();
         }
         delete[] arr;
     }
-    if(m_cards.size()<2)
-        throw InvalidCardsFile();
+    if(m_events.size()<2)
+        throw InvalidEventFile();
 }
 static bool islegalchars(string& name)
 {
@@ -258,14 +255,13 @@ static bool islegalchars(string& name)
     }
     return true;
 }
-void MatamStory::playermake(const string& Path) {
-    ifstream source2(Path);
-    if (!source2) {
+void MatamStory::playermake(const std::istream& playersStream) {
+    if (!playersStream) {
         throw InvalidPlayersFile();
     }
     std::string playerName,word;
     string playerstt[3];
-    while(getline(source2,playerName))
+    while(getline(playersStream,playerName))
     {
         for (int i = 0; i <3 ; ++i) {
             playerstt[i]=" ";

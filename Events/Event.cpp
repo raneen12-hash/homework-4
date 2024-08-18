@@ -103,7 +103,7 @@ string Slime::beastType() const{
 }
 
 //Balrog
-Balrog::Balrog() : Encounter(17,100,9001){}
+Balrog::Balrog() : Encounter(15,100,9001){}
 
 void Balrog::applyEvent(Player& player) const{
     player.applyEncounter(*this);
