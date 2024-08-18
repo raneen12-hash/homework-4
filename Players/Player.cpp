@@ -16,11 +16,11 @@ Player::Player(const string name, const string job, const string character) :
         m_name(name), m_maxHP(DEFAULTmaxHP), m_HP(DEFAULTmaxHP),
         m_coins(10), m_level(1), m_force(DEFAULTFORCE) {
     if (job == "Warrior") {
-        m_job = new Warrior("Warrior");
+        m_job = new Warrior("Warrior",m_maxHP = 150,m_HP=150);
     }
     else if(job =="Archer") {
 
-        m_job = new Archer("Archer");
+        m_job = new Archer("Archer",100,100,20);
     }
     else if(job =="Magician") {
         m_job = new Magician("Magician");

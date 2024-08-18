@@ -2,19 +2,6 @@
 #pragma once
 
 #include "../Players/Player.h"
-
-class Event {
-public:
-    /**
-     * Gets the description of the event
-     *
-     * @return - the description of the event
-    */
-    string getDescription() const;
-};
-
-
-
 #include <string>
 #include <vector>
 using std::string;
@@ -35,7 +22,7 @@ public:
      * @return - the description of the card
     */
     virtual string getDescription() const = 0;
-    virtual void applyCard(Player& player) const = 0;
+    virtual void applyEvent(Player& player) const = 0;
     virtual int getCombatPower() const = 0;
     virtual int getLoot() const ;
     virtual int getDamage() const ;
@@ -57,7 +44,7 @@ public:
 
 //SolareEclipse Functions
     string getDescription() const override;
-    void applyCard(Player& Player) const override;
+    void applyEvent(Player& Player) const override;
 };
 
 
@@ -73,7 +60,7 @@ public:
 
     //PotionsMerchant functions
     string getDescription() const override;
-    void applyCard(Player& Player) const override;
+    void applyEvent(Player& Player) const override;
 };
 
 class Encounter : public Card {
@@ -89,7 +76,7 @@ public:
     virtual int getCombatPower() const ;
     int getLoot() const override;
     int getDamage() const override;
-    virtual void applyCard(Player& player) const = 0;
+    virtual void applyEvent(Player& player) const = 0;
     virtual string beastType() const = 0;
 protected:
     int m_power;
@@ -97,16 +84,16 @@ protected:
     int m_damage;
 };
 
-class Gang : public Encounter {
+class Pack: public Encounter {
 public:
 //C'tor + big 3
-    Gang(const Gang& other) = delete;
-    Gang(const int power, const int loot, const int damage, const int size);
-    Gang& operator=(const Gang& other) = delete;
-    ~Gang() = default;
+    Pack(const Pack& other) = delete;
+    Pack(const int power, const int loot, const int damage, const int size);
+    Pack& operator=(const Pack& other) = delete;
+    ~Pack() = default;
 
 //Gang functions
-    void applyCard(Player& player) const override;
+    void applyEvent(Player& player) const override;
     string getDescription() const override;
     string beastType() const override;
 
@@ -114,42 +101,42 @@ private:
     int size;
 };
 
-class Goblin : public Encounter {
+class Snail : public Encounter {
 public:
 //C'tor + big 3
-    Goblin();
-    Goblin(const Goblin& other) = delete;
-    Goblin& operator=(const Goblin& other) = delete;
-    ~Goblin() = default;
+    Snail();
+    Snail(const Snail& other) = delete;
+    Snail& operator=(const Snail& other) = delete;
+    ~Snail() = default;
 
 //Goblin functions
-    void applyCard(Player& player) const override;
+    void applyEvent(Player& player) const override;
     string beastType() const override;
 };
 
-class Giant : public Encounter {
+class Slime : public Encounter {
 public:
 //C'tor + big 3
-    Giant();
-    Giant(const Giant& other) = delete;
-    Giant& operator=(const Giant& other) = delete;
-    ~Giant() = default;
+    Slime();
+    Slime(const Slime& other) = delete;
+    Slime& operator=(const Slime& other) = delete;
+    ~Slime() = default;
 
 //Giant functions
-    void applyCard(Player& player) const override;
+    void applyEvent(Player& player) const override;
     string beastType() const override;
 };
 
-class Dragon : public Encounter {
+class Balrog : public Encounter {
 public:
 //C'tor + big 3
-    Dragon();
-    Dragon(const Dragon& other) = delete;
-    Dragon& operator=(const Dragon& other) = delete;
-    ~Dragon() = default;
+    Balrog();
+    Balrog(const Balrog& other) = delete;
+    Balrog& operator=(const Balrog& other) = delete;
+    ~Balrog() = default;
 
 //Dragon functions
-    void applyCard(Player& player) const override;
+    void applyEvent(Player& player) const override;
     string beastType() const override;
 };
 
