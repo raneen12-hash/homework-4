@@ -1,8 +1,6 @@
 
 #ifndef UNTITLED6_SORCERER_H
 #define UNTITLED6_SORCERER_H
-
-#pragma once
 #include "Job.h"
 
 class Archer : public Job{
