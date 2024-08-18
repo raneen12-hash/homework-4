@@ -1,7 +1,7 @@
 //
 // Created by Raneen Haj Yahya on 17/08/2024.
 //
-#include "utilities.h"
+#include "../Utilities.h"
 #include "Player.h"
 #include "Job.h"
 #include "Warrior.h"
@@ -19,6 +19,7 @@ Player::Player(const string name, const string job, const string character) :
         m_job = new Warrior("Warrior");
     }
     else if(job =="Archer") {
+
         m_job = new Archer("Archer");
     }
     else if(job =="Magician") {
