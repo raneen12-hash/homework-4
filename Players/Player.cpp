@@ -4,8 +4,9 @@
 #include "utilities.h"
 #include "Player.h"
 #include "Job.h"
-#include "Warior.h"
-#include "Sorcerer.h"
+#include "Warrior.h"
+#include "Magician.h"
+#include "Archer.h"
 #include "Character.h"
 #include "Responsible.h"
 #include "RiskTaking.h"
@@ -15,20 +16,23 @@ Player::Player(const string name, const string job, const string character) :
         m_name(name), m_maxHP(DEFAULTmaxHP), m_HP(DEFAULTmaxHP),
         m_coins(10), m_level(1), m_force(DEFAULTFORCE) {
     if (job == "Warrior") {
-        m_job = new Warior("Warrior");
+        m_job = new Warrior("Warrior");
     }
-    else if(job =="Sorcerer") {
-        m_job = new Sorcerer("Sorcerer");
+    else if(job =="Archer") {
+        m_job = new Archer("Archer");
+    }
+    else if(job =="Magician") {
+        m_job = new Magician("Magician");
     }
     else {
         throw InvalidPlayersFile();
     }
-    if (behavior == "Responsible") {
-        m_behavior = new Responsible("Responsible");
+    if (Character == "Responsible") {
+        m_character = new Responsible("Responsible");
     }
     else if(character =="RiskTaking")
     {
-        m_behavior = new RiskTaking("RiskTaking");
+        m_character = new RiskTaking("RiskTaking");
     }
     else
     { delete m_job;
