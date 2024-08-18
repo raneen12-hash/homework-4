@@ -1,8 +1,11 @@
+//
+// Created by hadis on 19/08/2024.
+//
 
-#ifndef UNTITLED6_SORCERER_H
-#define UNTITLED6_SORCERER_H
+#ifndef ARCHER_H
+#define ARCHER_H
+
 #include "Job.h"
-
 class Archer : public Job{
     string m_type;
 public:
@@ -17,6 +20,5 @@ public:
     string getJob() const override;
 };
 
+#endif //UNTITLED10_ARCHER_H
 
-
-#endif //UNTITLED6_SORCERER_H

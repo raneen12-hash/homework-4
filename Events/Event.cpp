@@ -22,7 +22,7 @@ string SolarEclipse::getDescription() const{
 int SolarEclipse::getCombatPower() const{
     return 0;
 }
-void SolarEclipse::applyEvent(Player& player) const{
+void SolarEclipse::applyEvent(Player& player) {
     player.playSolarEclipse();
 }
 
@@ -34,7 +34,7 @@ string PotionsMerchant::getDescription() const{
 int PotionsMerchant::getCombatPower() const{
     return 0;
 }
-void PotionsMerchant::applyEvent(Player& player) const{
+void PotionsMerchant::applyEvent(Player& player) {
     player.playPotionsMerchant();
 }
 
@@ -72,7 +72,7 @@ string Pack::getDescription() const {
 }
 
 
-void Pack::applyEvent(Player& player) const{
+void Pack::applyEvent(Player& player) {
     player.applyEncounter(*this);
 }
 
@@ -82,7 +82,7 @@ string Pack::beastType() const{
 //Snail
 Snail::Snail() : Encounter(5,2,10){}
 
-void Snail::applyEvent(Player& player) const{
+void Snail::applyEvent(Player& player) {
     player.applyEncounter(*this);
 }
 
@@ -94,7 +94,7 @@ string Snail::beastType() const{
 //Slime
 Slime::Slime() : Encounter(12,5,25){}
 
-void Slime::applyEvent(Player& player) const{
+void Slime::applyEvent(Player& player) {
     player.applyEncounter(*this);
 }
 
@@ -105,14 +105,14 @@ string Slime::beastType() const{
 //Balrog
 Balrog::Balrog() : Encounter(15,100,9001){}
 
-void Balrog::applyEvent(Player& player) const{
+void Balrog::applyEvent(Player& player) {
     player.applyEncounter(*this);
 }
 
 string Balrog::beastType() const{
     return "Balrog";
 }
- void Event::setCompatPower() {
+void Event::setCompatPower() {
 
 }
 void Encounter::setCompatPower() {

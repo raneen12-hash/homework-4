@@ -22,10 +22,11 @@ public:
      * @return - the description of the Event
     */
     virtual string getDescription() const = 0;
-    virtual void applyEvent(Player& player) const = 0;
+    virtual void applyEvent(Player& player)  = 0;
     virtual int getCombatPower() const = 0;
     virtual int getLoot() const ;
     virtual int getDamage() const ;
+
     virtual void setCompatPower();
 };
 
@@ -45,7 +46,7 @@ public:
 
 //SolareEclipse Functions
     string getDescription() const override;
-    void applyEvent(Player& Player) const override;
+    void applyEvent(Player& Player)  override;
 };
 
 
@@ -61,7 +62,7 @@ public:
 
     //PotionsMerchant functions
     string getDescription() const override;
-    void applyEvent(Player& Player) const override;
+    void applyEvent(Player& Player)  override;
 };
 
 class Encounter : public Event {
@@ -77,13 +78,14 @@ public:
     virtual int getCombatPower() const override ;
     int getLoot() const override;
     int getDamage() const override;
-    virtual void applyEvent(Player& player) const override = 0 ;
+    virtual void applyEvent(Player& player)  override = 0 ;
     virtual string beastType() const = 0;
-    void setCompatPower() override;
 protected:
     int m_power;
     int m_loot;
     int m_damage;
+
+    void setCompatPower() override;
 };
 
 class Pack: public Encounter {
@@ -95,7 +97,7 @@ public:
     ~Pack() = default;
 
 //Gang functions
-    void applyEvent(Player& player) const override;
+    void applyEvent(Player& player)  override;
     string getDescription() const override;
     string beastType() const override;
 
@@ -112,7 +114,7 @@ public:
     ~Snail() = default;
 
 //Goblin functions
-    void applyEvent(Player& player) const override;
+    void applyEvent(Player& player)  override;
     string beastType() const override;
 };
 
@@ -125,7 +127,7 @@ public:
     ~Slime() = default;
 
 //Giant functions
-    void applyEvent(Player& player) const override;
+    void applyEvent(Player& player)  override;
     string beastType() const override;
 };
 
@@ -138,9 +140,8 @@ public:
     ~Balrog() = default;
 
 //Dragon functions
-    void applyEvent(Player& player) const override;
+    void applyEvent(Player& player)  override;
     string beastType() const override;
-
 };
 
 

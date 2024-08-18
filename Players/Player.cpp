@@ -11,7 +11,6 @@
 #include "Responsible.h"
 #include "RiskTaking.h"
 #include "../Exception.h"
-
 //Ctor
 Player::Player(const string name, const string job, const string character) :
         m_name(name), m_maxHP(DEFAULTmaxHP), m_HP(DEFAULTmaxHP),
