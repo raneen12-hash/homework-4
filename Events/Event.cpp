@@ -10,7 +10,7 @@ using std::string;
 int Event::getLoot() const{
     return 0;
 }
-int Card::getDamage() const {
+int Event::getDamage() const {
     return 0;
 }
 

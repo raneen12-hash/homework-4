@@ -7,7 +7,7 @@
 #include <queue>
 
 #include "Players/Player.h"
-#include "Event/Event.h"
+#include "Events/Event.h"
 #include "Exception.h"
 #include <fstream>
 #include <sstream>

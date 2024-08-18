@@ -7,19 +7,19 @@
 using std::string;
 using std::vector;
 
-class Card {
+class Event {
 public:
 //C'tor + big 3
-    Card() = default;
-    Card(const Card& card) = delete;
-    Card& operator=(const Card& card) = delete;
-    virtual ~Card() = default;
+    Event() = default;
+    Event(const Event& Event) = delete;
+    Event& operator=(const Event& Event) = delete;
+    virtual ~Event() = default;
 
-//Card functions
+//Event functions
     /**
-     * Gets the description of the card
+     * Gets the description of the Event
      *
-     * @return - the description of the card
+     * @return - the description of the Event
     */
     virtual string getDescription() const = 0;
     virtual void applyEvent(Player& player) const = 0;
@@ -28,12 +28,12 @@ public:
     virtual int getDamage() const ;
 };
 
-class Event : public Card{
+class Special_Event : public Event{
 public:
     virtual string getDescription() const = 0;
 };
 
-class SolarEclipse : public Event{
+class SolarEclipse : public Special_Event{
 public:
 //C'tor + big 3
     SolarEclipse() = default;
@@ -48,7 +48,7 @@ public:
 };
 
 
-class PotionsMerchant : public Event{
+class PotionsMerchant : public Special_Event{
 public:
 //C'tor + big 3
     PotionsMerchant() = default;
@@ -63,7 +63,7 @@ public:
     void applyEvent(Player& Player) const override;
 };
 
-class Encounter : public Card {
+class Encounter : public Event {
 public:
 //C'tor + big 3
     Encounter(int power, int loot, int damage);
@@ -73,10 +73,10 @@ public:
 
 //Encounter Functions
     virtual string getDescription() const override;
-    virtual int getCombatPower() const ;
+    virtual int getCombatPower() const override ;
     int getLoot() const override;
     int getDamage() const override;
-    virtual void applyEvent(Player& player) const = 0;
+    virtual void applyEvent(Player& player) const override = 0 ;
     virtual string beastType() const = 0;
 protected:
     int m_power;

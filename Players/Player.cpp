@@ -1,26 +1,29 @@
-//
+
 // Created by Raneen Haj Yahya on 17/08/2024.
 //
+#include "Magician.h"
+#include "Archer.h"
 #include "../Utilities.h"
 #include "Player.h"
 #include "Job.h"
 #include "Warrior.h"
-#include "Magician.h"
-#include "Archer.h"
 #include "Character.h"
 #include "Responsible.h"
 #include "RiskTaking.h"
-#include "Exception.h"
+#include "../Exception.h"
+
 //Ctor
 Player::Player(const string name, const string job, const string character) :
         m_name(name), m_maxHP(DEFAULTmaxHP), m_HP(DEFAULTmaxHP),
         m_coins(10), m_level(1), m_force(DEFAULTFORCE) {
     if (job == "Warrior") {
-        m_job = new Warrior("Warrior",m_maxHP = 150,m_HP=150);
+        m_job = new Warrior("Warrior");
+        m_HP = 150;
+        m_maxHP =150;
     }
-    else if(job =="Archer") {
-
-        m_job = new Archer("Archer",100,100,20);
+    else if(job =="Archer"){
+        m_job = new Archer("Archer");
+        m_coins =20 ;
     }
     else if(job =="Magician") {
         m_job = new Magician("Magician");
@@ -28,7 +31,7 @@ Player::Player(const string name, const string job, const string character) :
     else {
         throw InvalidPlayersFile();
     }
-    if (Character == "Responsible") {
+    if (character == "Responsible") {
         m_character = new Responsible("Responsible");
     }
     else if(character =="RiskTaking")
@@ -141,12 +144,12 @@ void Player::playPotionsMerchant(){
     m_character->buy(*this);
 }
 
-void Player::applyEncounter(const Card& card){
+void Player::applyEncounter(const Event& event){
     int playerCombatPower = getCombatPower();
-    int cardCombatPower = card.getCombatPower();
-    int loot = card.getLoot();
-    int damage = card.getDamage();
-    if(playerCombatPower > cardCombatPower){
+    int eventCombatPower = event.getCombatPower();
+    int loot = event.getLoot();
+    int damage = event.getDamage();
+    if(playerCombatPower > eventCombatPower){
         this->levelUp();
         this->addCoins(loot);
         cout<<getEncounterWonMessage(*this, loot)<<endl;

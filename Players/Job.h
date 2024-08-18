@@ -1,11 +1,13 @@
 #ifndef UNTITLED6_JOB_H
 #define UNTITLED6_JOB_H
 
+#pragma once
 #include "Player.h"
 #include <string>
 #include "../Utilities.h"
 using std::string;
 
+class Player;
 class Job {
 public:
 //C'tors / big 3

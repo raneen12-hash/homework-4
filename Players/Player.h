@@ -16,8 +16,7 @@
 
 class Job;
 class Character;
-class Card;
-
+class Event;
 using namespace std;
 
 class Player{
@@ -182,6 +181,6 @@ public:
     void setHealthPoints(int x);
     void playSolarEclipse() ;
     void playPotionsMerchant();
-    void applyEncounter(const Card& card);
+    void applyEncounter(const Event& event);
 };
 #endif //UNTITLED6_PLAYER_H

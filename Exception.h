@@ -1,8 +1,44 @@
 //
-// Created by Raneen Haj Yahya on 18/08/2024.
+// Created by USER on 01/04/2024.
 //
 
-#ifndef UNTITLED10_EXCEPTION_H
-#define UNTITLED10_EXCEPTION_H
+#ifndef NEW_EXCEPTION_H
+#define NEW_EXCEPTION_H
 
-#endif //UNTITLED10_EXCEPTION_H
+
+#include <exception>
+#include <string>
+
+class InvalidPlayersFile :public std::exception
+{
+public:
+    InvalidPlayersFile() : m_error_line("Invalid Players File")
+    {
+    }
+    const char* what() const noexcept override
+    {
+        return m_error_line.c_str();
+    }
+private:
+    std::string m_error_line;
+};
+
+
+class InvalidEventFile :public std::exception
+{
+public:
+    InvalidEventFile() : m_error_line("Invalid Events File")
+    {
+    }
+    const char* what() const noexcept override
+    {
+        return m_error_line.c_str();
+    }
+private:
+    std::string m_error_line;
+
+};
+
+
+
+#endif //NEW_EXCEPTION_H
