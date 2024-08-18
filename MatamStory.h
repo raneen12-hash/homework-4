@@ -25,8 +25,8 @@ private:
     vector<unique_ptr<Player>> m_players;
     vector<unique_ptr<Event>> m_events;
     Pack* makeGang(string *arr, int begin, int end);
-    void eventmake(const std::istream& eventsStream);
-    void playermake(const std::istream& playersStream);
+    void eventmake(std::istream& eventsStream);
+    void playermake(std::istream& playersStream);
 
     /**
      * Playes a single turn for a player

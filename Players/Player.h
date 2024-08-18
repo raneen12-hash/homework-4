@@ -181,6 +181,6 @@ public:
     void setHealthPoints(int x);
     void playSolarEclipse() ;
     void playPotionsMerchant();
-    void applyEncounter(const Event& event);
+    void applyEncounter( Event& event);
 };
 #endif //UNTITLED6_PLAYER_H

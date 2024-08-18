@@ -210,7 +210,7 @@ void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp
         }
     }
 }
-void MatamStory::eventmake(const std::istream& eventsStream)
+void MatamStory::eventmake(std::istream& eventsStream)
 {
     if (!eventsStream) {
         throw InvalidEventFile();
@@ -255,7 +255,7 @@ static bool islegalchars(string& name)
     }
     return true;
 }
-void MatamStory::playermake(const std::istream& playersStream) {
+void MatamStory::playermake(std::istream& playersStream) {
     if (!playersStream) {
         throw InvalidPlayersFile();
     }

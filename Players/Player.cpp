@@ -144,7 +144,7 @@ void Player::playPotionsMerchant(){
     m_character->buy(*this);
 }
 
-void Player::applyEncounter(const Event& event){
+void Player::applyEncounter( Event& event){
     int playerCombatPower = getCombatPower();
     int eventCombatPower = event.getCombatPower();
     int loot = event.getLoot();
@@ -157,6 +157,10 @@ void Player::applyEncounter(const Event& event){
     else{
         this->damage(damage);
         cout<<getEncounterLostMessage(*this , damage)<<endl;
+    }
+    if(event.getDescription()=="Balrog")
+    {
+        event.setCompatPower();
     }
 }
 Player::~Player(){

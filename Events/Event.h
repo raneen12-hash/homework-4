@@ -26,6 +26,7 @@ public:
     virtual int getCombatPower() const = 0;
     virtual int getLoot() const ;
     virtual int getDamage() const ;
+    virtual void setCompatPower();
 };
 
 class Special_Event : public Event{
@@ -78,6 +79,7 @@ public:
     int getDamage() const override;
     virtual void applyEvent(Player& player) const override = 0 ;
     virtual string beastType() const = 0;
+    void setCompatPower() override;
 protected:
     int m_power;
     int m_loot;
@@ -138,6 +140,7 @@ public:
 //Dragon functions
     void applyEvent(Player& player) const override;
     string beastType() const override;
+
 };
 
 
