@@ -21,6 +21,7 @@ public:
      *
      * @return - the description of the Event
     */
+    virtual string beastType() const;
     virtual string getDescription() const = 0;
     virtual void applyEvent(Player& player)  = 0;
     virtual int getCombatPower() const = 0;
@@ -79,7 +80,7 @@ public:
     int getLoot() const override;
     int getDamage() const override;
     virtual void applyEvent(Player& player)  override = 0 ;
-    virtual string beastType() const = 0;
+    virtual string beastType() const override = 0;
 protected:
     int m_power;
     int m_loot;
