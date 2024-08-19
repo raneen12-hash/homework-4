@@ -93,6 +93,9 @@ void Player::addCoins(int getcoins){
     m_coins += getcoins;
 }
 
+string Player::getjob() const {
+    return m_job->getJob();
+}
 bool Player :: pay (int paycoins){
     if(paycoins>0)
     {
@@ -151,15 +154,16 @@ void Player::applyEncounter( Event& event){
         this->levelUp();
         this->addCoins(loot);
         cout<<getEncounterWonMessage(*this, loot)<<endl;
+        if(m_job->getJob()=="Warrior")
+        {
+            this->damage(10);
+        }
     }
     else{
         this->damage(damage);
         cout<<getEncounterLostMessage(*this , damage)<<endl;
     }
-    if(m_job->getJob()=="Warrior")
-    {
-        this->damage(10);
-    }
+
     if(event.beastType()=="Balrog")
     {
         event.setCompatPower();
