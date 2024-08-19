@@ -105,6 +105,8 @@ void MatamStory::play() {
             for(auto& player : temp){
                 delete player;
             }
+
+
             return;
         }
     }
@@ -112,7 +114,7 @@ void MatamStory::play() {
     /*========================================================================*/
 }
 
-void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k,int& k )
+void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k,int& k , int& num_balrog)
 {
     if(arr[k]=="Snail")
     {
@@ -128,6 +130,7 @@ void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int&
     else
     if(arr[k]=="Balrog")
     { if(size!=0) {
+        num_balrog++;
             temp_power += 15;
             temp_loot += 100;
             temp_damage += 9001;
@@ -163,7 +166,7 @@ void MatamStory::Aux_lesslines(string* arr,int j,int& size,int& flag,int& s,int&
     }
 
 }
-void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k )
+void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp_power,int& temp_damage,int&temp_loot,int& flag_k, int& num_balrog )
 {
 
     for (int k = 0; k < j; ++k) {
@@ -181,7 +184,10 @@ void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp
             if(size==0&&(arr[k]=="Pack"||flag_k==-1))
             {   k=flag_k==-1?-1:k;
                 flag_k=1;
-                s=std::stoi(arr[k+1]);
+                size_t p;
+                s=std::stoi(arr[k+1],&p);
+                if(arr[k+1].size()!=p)
+                    throw InvalidEventFile();
                 size+=s;
                 k+=2;
                 flag=1;
@@ -199,14 +205,15 @@ void MatamStory::Aux_func(string* arr,int j,int& size,int& flag,int& s,int& temp
                 k += 1;
             }
         }
-        Aux_lesslines(arr,j,size,flag,s,temp_power,temp_damage,temp_loot,flag_k,k);
+        Aux_lesslines(arr,j,size,flag,s,temp_power,temp_damage,temp_loot,flag_k,k,num_balrog);
 
         if(size==0&&flag){
-            m_events.push_back(unique_ptr<Pack>(unique_ptr<Pack>(new Pack(temp_power,temp_loot,temp_damage,s))));
+            m_events.push_back(unique_ptr<Pack>(new Pack(temp_power,temp_loot,temp_damage,s,num_balrog)));
             temp_damage=0;
             temp_loot=0;
             temp_power=0;
             flag=0;
+            num_balrog=0;
         }
     }
 }
@@ -216,7 +223,7 @@ void MatamStory::eventmake(std::istream& eventsStream)
         throw InvalidEventFile();
     }
     std::string eventName,word,c;
-    int i=0,temp_power=0,temp_loot=0,temp_damage=0,j=0,size=0,flag=0,s,flag_kk=1;
+    int i=0,temp_power=0,temp_loot=0,temp_damage=0,j=0,size=0,flag=0,s,flag_kk=1,num=0;
 
     while(getline(eventsStream,eventName)){
 
@@ -235,7 +242,7 @@ void MatamStory::eventmake(std::istream& eventsStream)
         try {
             if(size!=0)
                 flag=1;
-            Aux_func(arr, j, size, flag, s, temp_power, temp_damage, temp_loot, flag_kk);
+            Aux_func(arr, j, size, flag, s, temp_power, temp_damage, temp_loot, flag_kk,num);
         }
         catch (...)
         {
@@ -261,27 +268,40 @@ void MatamStory::playermake(std::istream& playersStream) {
     }
     std::string playerName,word;
     string playerstt[3];
+    int j = 0;
+    for (int i = 0; i <3 ; ++i) {
+        playerstt[i]=" ";
+    }
     while(getline(playersStream,playerName))
     {
-        for (int i = 0; i <3 ; ++i) {
-            playerstt[i]=" ";
-        }
+
         if(m_players.size()==6)
             throw InvalidPlayersFile();
         istringstream iss(playerName);
-        int j = 0;
 
         while (iss >> word) {
-            if(j==3)
-                throw InvalidPlayersFile();
+            if (j ==3)
+            {
+                if(playerstt[0].size()>15 ||playerstt[0].size() < 3 || !islegalchars(playerstt[0]))
+                    throw InvalidPlayersFile();
+                m_players.push_back(std::unique_ptr<Player>(new Player(playerstt[0],playerstt[1],playerstt[2])));
+                j=0;
+                playerstt[0] =" ";
+                playerstt[1] =" ";
+                playerstt[2] =" ";
+            }
             playerstt[j] = word;
             j++;
         }
-        if(playerstt[0].size()>15 || !islegalchars(playerstt[0]))
-            throw InvalidPlayersFile();
-        m_players.push_back(std::unique_ptr<Player>(new Player(playerstt[0],playerstt[1],playerstt[2])));
-
+        if(j==3) {
+            if (playerstt[0].size() > 15 || playerstt[0].size() < 3 || !islegalchars(playerstt[0]))
+                throw InvalidPlayersFile();
+            m_players.push_back(std::unique_ptr<Player>(new Player(playerstt[0], playerstt[1], playerstt[2])));
+            j=0;
+        }
     }
+    if(j!=0)
+        throw InvalidPlayersFile();
     if(m_players.size()<2){
         throw InvalidPlayersFile();
     }
