@@ -22,3 +22,7 @@ void Archer::playSolarEclipse(Player& player){
 string Archer::getJob() const{
     return m_type;
 }
+Job* Archer::clone() const {
+    return new Archer(*this);
+
+}
