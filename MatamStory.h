@@ -8,7 +8,6 @@
 
 #include "Players/Player.h"
 #include "Events/Event.h"
-#include "Exception.h"
 #include <fstream>
 #include <sstream>
 
