@@ -129,7 +129,7 @@ public:
      *
      * @return int returns the job of the player
      */
-    int getjob() const;  //change:: not virtual
+    string getjob() const;  //change:: not virtual
 
     /**
      * @brief Get the behavior of the player
