@@ -112,6 +112,7 @@ void Balrog::applyEvent(Player& player) {
 }
 
 string Balrog::beastType() const{
+    return "Balrog";
 }
 void Event::setCompatPower() {
 
