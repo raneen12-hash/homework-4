@@ -1,0 +1,354 @@
+* commit dc8547940d4f00a0b6f53f8f0fb5918d9128c045
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 21:08:41 2024 +0300
+| 
+|     Update MatamStory.h
+| 
+|  MatamStory.h | 6 +++---
+|  1 file changed, 3 insertions(+), 3 deletions(-)
+| 
+* commit 0007ab8dc41109a36e7d48d7d2b29a77b6debcdc
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 21:08:15 2024 +0300
+| 
+|     Update MatamStory.cpp
+| 
+|  MatamStory.cpp | 54 +++++++++++++++++++++++++++++++++++++-----------------
+|  1 file changed, 37 insertions(+), 17 deletions(-)
+| 
+* commit e1cb45ef00e299617726052319c72cdf6bdba02f
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 21:06:57 2024 +0300
+| 
+|     Update Responsible.cpp
+| 
+|  Players/Responsible.cpp | 7 +++++--
+|  1 file changed, 5 insertions(+), 2 deletions(-)
+| 
+* commit 17428c76cadf2823d1f48ef9305569913684940f
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 21:06:36 2024 +0300
+| 
+|     Update Player.h
+| 
+|  Players/Player.h | 2 +-
+|  1 file changed, 1 insertion(+), 1 deletion(-)
+| 
+* commit 06f4579477d8bbe8adb186645867a86e7b07d3f3
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 20:55:20 2024 +0300
+| 
+|     Update Player.cpp
+| 
+|  Players/Player.cpp | 12 ++++++++----
+|  1 file changed, 8 insertions(+), 4 deletions(-)
+| 
+* commit 21b10ad9fd6730787e16532c1c0d6a09f18f46d4
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 20:52:45 2024 +0300
+| 
+|     Update Archer.cpp
+| 
+|  Players/Archer.cpp | 6 +++---
+|  1 file changed, 3 insertions(+), 3 deletions(-)
+| 
+* commit d31e7bcc2d773822901c3ed52054932d9e5a36c3
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 20:52:12 2024 +0300
+| 
+|     Update Event.h
+| 
+|  Events/Event.h | 6 ++++--
+|  1 file changed, 4 insertions(+), 2 deletions(-)
+| 
+* commit 5b4b03496414eb41de8bf4a598bdcd2a5dc33b45
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 20:51:49 2024 +0300
+| 
+|     Update Event.cpp
+| 
+|  Events/Event.cpp | 7 ++++++-
+|  1 file changed, 6 insertions(+), 1 deletion(-)
+| 
+* commit 3a1bde27aefc84d486b72134fd9bbfeb93f823e6
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 16:09:49 2024 +0300
+| 
+|     Update Event.cpp
+| 
+|  Events/Event.cpp | 1 +
+|  1 file changed, 1 insertion(+)
+| 
+* commit a5923956cac062efbe203c0a41e8421b8d649b85
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 16:07:29 2024 +0300
+| 
+|     Update Event.cpp
+| 
+|  Events/Event.cpp | 5 +++--
+|  1 file changed, 3 insertions(+), 2 deletions(-)
+| 
+* commit 27fab9bd15b425519526fa55c55dc4df1baafdef
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 16:07:05 2024 +0300
+| 
+|     Update Event.h
+| 
+|  Events/Event.h | 3 ++-
+|  1 file changed, 2 insertions(+), 1 deletion(-)
+| 
+* commit 7ea11b40bb3aa1c04f0f02890ce69b90d7db7498
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 16:06:29 2024 +0300
+| 
+|     Update Player.cpp
+| 
+|  Players/Player.cpp | 6 +++++-
+|  1 file changed, 5 insertions(+), 1 deletion(-)
+| 
+* commit 220b5a273e61aad7b4b114c1425809292b7983e7
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 14:20:46 2024 +0300
+| 
+|     Update Player.cpp
+| 
+|  Players/Player.cpp | 2 +-
+|  1 file changed, 1 insertion(+), 1 deletion(-)
+| 
+* commit 14a4479688de7e1872b61fe1492afa79f66e9fa3
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 14:14:37 2024 +0300
+| 
+|     Update MatamStory.cpp
+| 
+|  MatamStory.cpp | 1 +
+|  1 file changed, 1 insertion(+)
+| 
+* commit 98ef00be87428a5dacc7352787e9f30fb52a97cc
+| Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 14:12:30 2024 +0300
+| 
+|     Update MatamStory.cpp
+| 
+|  MatamStory.cpp | 3 +--
+|  1 file changed, 1 insertion(+), 2 deletions(-)
+|   
+*   commit ab6ff57354e29cbd0abe93a584d4d0d5e0401fcd
+|\  Merge: ded4ee5 0c59777
+| | Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| | Date:   Mon Aug 19 14:08:11 2024 +0300
+| | 
+| |     Merge remote-tracking branch 'origin/main'
+| |     
+| |     # Conflicts:
+| |     #       MatamStory.h
+| | 
+| * commit 0c59777d1b2b45e095812c8720e19022a1f9a205
+| | Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| | Date:   Mon Aug 19 13:57:32 2024 +0300
+| | 
+| |     Update MatamStory.cpp
+| | 
+| |  MatamStory.cpp | 2 +-
+| |  1 file changed, 1 insertion(+), 1 deletion(-)
+| | 
+| * commit f2a1000cc813a05f0a1ebd67edb0510f7ae20c93
+| | Author: Haj Yahya Raneen <raneen.haj@campus.technion.ac.il>
+| | Date:   Mon Aug 19 13:57:11 2024 +0300
+| | 
+| |     Update MatamStory.h
+| | 
+| |  MatamStory.h | 3 +--
+| |  1 file changed, 1 insertion(+), 2 deletions(-)
+| | 
+* | commit ded4ee5b79d527e0e95b8ffaf65b97a4ef886e4c
+|/  Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+|   Date:   Mon Aug 19 14:07:25 2024 +0300
+|   
+|       updating
+|   
+|    MatamStory.h                       | 2 +-
+|    Exception.h => Players/Exception.h | 0
+|    Players/Player.cpp                 | 1 -
+|    Players/Player.h                   | 1 +
+|    4 files changed, 2 insertions(+), 2 deletions(-)
+| 
+* commit 664348a566101aff754f4318bb4088159a44044c
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 13:47:22 2024 +0300
+| 
+|     updating
+| 
+|  Players/Archer.cpp | 4 ++++
+|  1 file changed, 4 insertions(+)
+| 
+* commit 720805e76fd35c65fd964a99dbaaa0f7ef861426
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 02:12:14 2024 +0300
+| 
+|     updating
+| 
+|  Events/Event.cpp   | 16 ++++++++--------
+|  Events/Event.h     | 21 +++++++++++----------
+|  Players/Archer.h   | 12 +++++++-----
+|  Players/Player.cpp |  1 -
+|  4 files changed, 26 insertions(+), 24 deletions(-)
+| 
+* commit d42dd030c40d79e0880960ac107bf0175fe250fb
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 02:12:14 2024 +0300
+| 
+|     updating
+| 
+|  Players/Archer.h | 2 --
+|  1 file changed, 2 deletions(-)
+| 
+* commit ca0134b407953241327197ee55ae0b5d009d6cab
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Mon Aug 19 00:41:29 2024 +0300
+| 
+|     updating
+| 
+|  Events/Event.cpp   | 6 ++++++
+|  Events/Event.h     | 3 +++
+|  MatamStory.cpp     | 4 ++--
+|  MatamStory.h       | 4 ++--
+|  Players/Player.cpp | 6 +++++-
+|  Players/Player.h   | 2 +-
+|  6 files changed, 19 insertions(+), 6 deletions(-)
+| 
+* commit 058e4ae2911e165204cb277a157e35d1dac618c5
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Sun Aug 18 22:30:44 2024 +0300
+| 
+|     updating
+| 
+|  Events/Event.cpp       |  2 +-
+|  MatamStory.cpp         | 64 +++++++++++++++++++++++-------------------------
+|  MatamStory.h           |  6 ++---
+|  Players/RiskTaking.cpp |  2 +-
+|  4 files changed, 35 insertions(+), 39 deletions(-)
+| 
+* commit 1b2791dbb211f5527f53047bda85c9eac0036608
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Sun Aug 18 21:33:03 2024 +0300
+| 
+|     updating
+| 
+|  MatamStory.cpp | 125 ++++---------------------------------------------------
+|  MatamStory.h   |  84 ++++---------------------------------
+|  2 files changed, 18 insertions(+), 191 deletions(-)
+| 
+* commit eb374e45138cc1b408d031eceedebc8c0ef58153
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Sun Aug 18 21:33:03 2024 +0300
+| 
+|     updating
+| 
+|  Events/Event.cpp      |  2 +-
+|  Events/Event.h        | 28 ++++++++++++++--------------
+|  Exception.h           | 44 ++++++++++++++++++++++++++++++++++++++++----
+|  MatamStory.h          |  2 +-
+|  Players/Archer.h      |  2 +-
+|  Players/Character.cpp |  5 -----
+|  Players/Job.cpp       |  5 -----
+|  Players/Job.h         |  2 ++
+|  Players/Magician.h    |  2 +-
+|  Players/Player.cpp    | 31 +++++++++++++++++--------------
+|  Players/Player.h      |  5 ++---
+|  11 files changed, 79 insertions(+), 49 deletions(-)
+| 
+* commit fd561881dc5ad05ed46c27b213083eaef29a4b8c
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Sun Aug 18 20:13:08 2024 +0300
+| 
+|     updating
+| 
+|  Events/Event.cpp   | 111 +++++++++++++++
+|  Events/Event.h     |  69 ++++-----
+|  Exception.h        |   8 ++
+|  MatamStory.cpp     | 386 ++++++++++++++++++++++++++++++++++++++++++++++++---
+|  MatamStory.h       |  60 ++++++++
+|  Players/Player.cpp |   4 +-
+|  6 files changed, 572 insertions(+), 66 deletions(-)
+| 
+* commit c8d6ad741521d7408e6c8244f08ccb8255eabe0e
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Sun Aug 18 17:25:44 2024 +0300
+| 
+|     updating
+| 
+|  Events/Event.cpp        |   3 +
+|  Events/Event.h          | 144 ++++++++++++++++++++++++++++++++++++++++++++++
+|  MatamStory.h            |  49 +++++++++++++---
+|  Players/Job.h           |   2 +-
+|  Players/Player.cpp      |   3 +-
+|  Players/Responsible.cpp |  22 ++++++-
+|  Players/Responsible.h   |  21 +++++--
+|  Players/RiskTaking.cpp  |  24 +++++++-
+|  Players/RiskTaking.h    |  23 ++++++--
+|  9 files changed, 264 insertions(+), 27 deletions(-)
+| 
+* commit 6eec03f3829b9e20671daf45ace1652d1158adbe
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Sun Aug 18 15:10:30 2024 +0300
+| 
+|     updating
+| 
+|  Players/Archer.cpp      | 25 ++++++++++++++++++++++---
+|  Players/Archer.h        | 28 ++++++++++++++++++++++------
+|  Players/Character.cpp   |  5 +++++
+|  Players/Character.h     | 22 ++++++++++++++++++++++
+|  Players/Job.cpp         |  5 +++++
+|  Players/Job.h           | 24 ++++++++++++++++++++++++
+|  Players/Magician.cpp    | 28 +++++++++++++++++++++++++++-
+|  Players/Magician.h      | 28 ++++++++++++++++++++++------
+|  Players/Player.cpp      | 20 ++++++++++++--------
+|  Players/Responsible.cpp |  5 +++++
+|  Players/Responsible.h   |  8 ++++++++
+|  Players/RiskTaking.cpp  |  5 +++++
+|  Players/RiskTaking.h    |  8 ++++++++
+|  Players/Warrior.cpp     | 27 ++++++++++++++++++++++++---
+|  Players/Warrior.h       | 24 ++++++++++++++++++------
+|  15 files changed, 229 insertions(+), 33 deletions(-)
+| 
+* commit 53a47d40c9e50ab81080b51abe9b7fffd5e590e6
+| Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+| Date:   Sun Aug 18 14:48:03 2024 +0300
+| 
+|     updating
+| 
+|  Players/Archer.cpp   |   5 ++
+|  Players/Archer.h     |   8 +++
+|  Players/Magician.cpp |   5 ++
+|  Players/Magician.h   |   8 +++
+|  Players/Player.cpp   | 161 +++++++++++++++++++++++++++++++++++++++++++++++++
+|  Players/Player.h     | 156 ++++++++++++++++++++++++++++++++++++++++++++---
+|  Players/Warrior.cpp  |   5 ++
+|  Players/Warrior.h    |   8 +++
+|  8 files changed, 346 insertions(+), 10 deletions(-)
+| 
+* commit c5539d790a0454b77934a637f42f4f2921d57318
+  Author: Raneen Haj Yahya <raneen.haj@campus.technion.ac.il>
+  Date:   Sat Aug 17 16:20:24 2024 +0300
+  
+      copy
+  
+   Events/Event.h       |  14 +++++
+   MatamStory.cpp       |  74 +++++++++++++++++++++++++
+   MatamStory.h         |  55 +++++++++++++++++++
+   Players/Player.h     |  51 +++++++++++++++++
+   README.md            |   7 +++
+   Utilities.cpp        | 117 +++++++++++++++++++++++++++++++++++++++
+   Utilities.h          | 146 +++++++++++++++++++++++++++++++++++++++++++++++++
+   main.cpp             |  40 ++++++++++++++
+   tests/test1.events   |   5 ++
+   tests/test1.expected |  96 ++++++++++++++++++++++++++++++++
+   tests/test1.players  |   3 +
+   tests/test2.events   |   4 ++
+   tests/test2.expected |   1 +
+   tests/test2.players  |   3 +
+   tests/test3.events   |   5 ++
+   tests/test3.expected |   1 +
+   tests/test3.players  |   2 +
+   17 files changed, 624 insertions(+)
