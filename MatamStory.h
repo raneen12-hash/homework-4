@@ -72,9 +72,9 @@ public:
 
     void mtmSort(vector<Player*>* temp);
 
-    void Aux_func(string *arr, int j, int &size, int &flag, int &s, int &temp_power, int &temp_damage, int &temp_loot,int& flag_k );
+    void Aux_func(string *arr, int j, int &size, int &flag, int &s, int &temp_power, int &temp_damage, int &temp_loot,int& flag_k,int& num_balrog );
 
     void
     Aux_lesslines(string *arr, int j, int &size, int &flag, int &s, int &temp_power, int &temp_damage, int &temp_loot,
-                  int &flag_k, int &k);
+                  int &flag_k, int &k,int& num_balrog);
 };
