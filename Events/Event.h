@@ -93,7 +93,7 @@ class Pack: public Encounter {
 public:
 //C'tor + big 3
     Pack(const Pack& other) = delete;
-    Pack(const int power, const int loot, const int damage, const int size);
+    Pack(const int power, const int loot, const int damage, const int size,int num);
     Pack& operator=(const Pack& other) = delete;
     ~Pack() = default;
 
@@ -101,8 +101,10 @@ public:
     void applyEvent(Player& player)  override;
     string getDescription() const override;
     string beastType() const override;
-
+    int getNumOfBalrog() ;
+    void setPwoer();
 private:
+    int num_balrog;
     int size;
 };
 
