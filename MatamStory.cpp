@@ -1,6 +1,6 @@
 
 #include "MatamStory.h"
-
+#include "Exception.h"
 #include "Utilities.h"
 
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
