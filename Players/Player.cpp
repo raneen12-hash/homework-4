@@ -156,7 +156,11 @@ void Player::applyEncounter( Event& event){
         this->damage(damage);
         cout<<getEncounterLostMessage(*this , damage)<<endl;
     }
-    if(event.getDescription()=="Balrog")
+    if(m_job->getJob()=="Warrior")
+    {
+        this->damage(10);
+    }
+    if(event.beastType()=="Balrog")
     {
         event.setCompatPower();
     }
