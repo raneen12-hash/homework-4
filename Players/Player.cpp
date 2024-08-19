@@ -111,7 +111,7 @@ bool Player :: pay (int paycoins){
 
 string Player::getDescription() const{
     return m_name + ", " + m_job->getJob() + " with " + m_character->getType() +
-           " behavior (level " + to_string(m_level) + ", force "
+           " character (level " + to_string(m_level) + ", force "
            + to_string(m_force)+")";
 }
 string Player::getName() const{
