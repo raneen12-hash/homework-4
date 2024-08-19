@@ -6,7 +6,9 @@
 #include "Event.h"
 #include <string>
 using std::string;
-
+ string Event::beastType() const{
+   return " " ;
+}
 int Event::getLoot() const{
     return 0;
 }
@@ -110,7 +112,6 @@ void Balrog::applyEvent(Player& player) {
 }
 
 string Balrog::beastType() const{
-    return "Balrog";
 }
 void Event::setCompatPower() {
 
