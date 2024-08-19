@@ -12,8 +12,8 @@ int Archer::getcombat(Player& player) {
 void Archer::playSolarEclipse(Player& player){
     int effect=0;
     if(player.getForce() != 0){
-        player.buff(1);
-        effect=1;
+        player.buff(-1);
+        effect=-1;
     }
     cout<<getSolarEclipseMessage(player,effect)<<endl;
 
