@@ -63,8 +63,12 @@ int Encounter::getDamage() const{
 }
 
 //Pack
-Pack::Pack(const int power,const int loot,const int damage,const int size) : Encounter(power,loot,damage),size(size){
+Pack::Pack(const int power,const int loot,const int damage,const int size ,const int num_balrog) : Encounter(power,loot,damage),num_balrog(num_balrog),size(size){
 
+}
+void Pack::setPwoer()
+{
+     m_power+=num_balrog*2;
 }
 
 string Pack::getDescription() const {
@@ -76,6 +80,7 @@ string Pack::getDescription() const {
 
 void Pack::applyEvent(Player& player) {
     player.applyEncounter(*this);
+    setPwoer();
 }
 
 string Pack::beastType() const{
