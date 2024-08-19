@@ -1,8 +1,7 @@
 
 #include "MatamStory.h"
-#include "Exception.h"
 #include "Utilities.h"
-
+using std::sort;
 MatamStory::MatamStory(std::istream& eventsStream, std::istream& playersStream) {
     eventmake(eventsStream);
     playermake(playersStream);
